@@ -1,0 +1,78 @@
+{
+  "name": "@elizaos/core",
+  "version": "1.0.0-beta.7",
+  "description": "Core package for Eliza",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && mkdir -p dist && bunx tsc -p tsconfig.build.json",
+    "watch": "tsup --watch",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "dev": "bunx tsc -p tsconfig.build.json --watch",
+    "build:docs": "cd docs && bun run build",
+    "test": "bun test",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest",
+    "format": "prettier --write ./src",
+    "format:check": "prettier --check ./src",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "9.16.0",
+    "@rollup/plugin-commonjs": "25.0.8",
+    "@rollup/plugin-json": "6.1.0",
+    "@rollup/plugin-replace": "5.0.7",
+    "@rollup/plugin-terser": "0.1.0",
+    "@rollup/plugin-typescript": "11.1.6",
+    "@types/mocha": "10.0.10",
+    "@types/node": "^20.11.24",
+    "@typescript-eslint/eslint-plugin": "8.26.0",
+    "@typescript-eslint/parser": "8.26.0",
+    "@vitest/coverage-v8": "2.1.5",
+    "lint-staged": "15.2.10",
+    "nodemon": "3.1.7",
+    "pm2": "5.4.3",
+    "prettier": "3.5.3",
+    "rimraf": "6.0.1",
+    "rollup": "2.79.2",
+    "ts-node": "10.9.2",
+    "tslib": "2.8.1",
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "dedent": "^1.5.3",
+    "dotenv": "16.4.5",
+    "events": "^3.3.0",
+    "glob": "11.0.0",
+    "handlebars": "^4.7.8",
+    "js-sha1": "0.7.0",
+    "langchain": "^0.3.15",
+    "pino": "^8.19.0",
+    "pino-pretty": "^10.3.1",
+    "unique-names-generator": "4.7.1",
+    "uuid": "11.1.0",
+    "zod": "^3.22.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "9834bbd06128356b44b091f022fc2a2d024a875e"
+}
